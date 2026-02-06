@@ -1,0 +1,77 @@
+{
+  "records": [
+    {
+      "id": "6fe422c5-8472-452b-bc13-4a24592d7538",
+      "userId": "8e0352e0-c272-4346-8613-eff50300242d",
+      "isPublic": false,
+      "createdAt": "2026-02-06T14:41:52.814Z",
+      "updatedAt": "2026-02-06T14:41:52.847Z",
+      "projectTitle": "dsfdfgdsf",
+      "clientName": "kjsdgsadkghak",
+      "status": "failed",
+      "data": {
+        "title": "dsfdfgdsf",
+        "clientName": "kjsdgsadkghak",
+        "description": "kjsdsggfk gsndkgn kngkndkfn",
+        "files": [],
+        "budget": "500",
+        "currency": "USD",
+        "timeline": "dsfgdfhsdf",
+        "communication": ""
+      },
+      "error": "OpenAI API Key is missing on the server."
+    },
+    {
+      "id": "ceadf6f9-43b2-4e95-b8d1-789459606eed",
+      "createdAt": "2026-02-06T14:01:11.477Z",
+      "updatedAt": "2026-02-06T14:01:11.495Z",
+      "projectTitle": "dfdsgsd",
+      "clientName": "regeger",
+      "status": "failed",
+      "data": {
+        "title": "dfdsgsd",
+        "clientName": "regeger",
+        "description": "gerrt rtgertb trhrtre",
+        "files": [
+          {}
+        ],
+        "budget": "5000",
+        "currency": "USD",
+        "timeline": "2month",
+        "communication": "this is testing "
+      },
+      "error": "OpenAI API Key is missing on the server."
+    },
+    {
+      "id": "c20777a7-b779-4988-90d5-10fc6d389cfd",
+      "createdAt": "2026-02-06T14:01:06.659Z",
+      "updatedAt": "2026-02-06T14:01:06.681Z",
+      "projectTitle": "dfdsgsd",
+      "clientName": "regeger",
+      "status": "failed",
+      "data": {
+        "title": "dfdsgsd",
+        "clientName": "regeger",
+        "description": "gerrt rtgertb trhrtre",
+        "files": [
+          {}
+        ],
+        "budget": "5000",
+        "currency": "USD",
+        "timeline": "2month",
+        "communication": "this is testing "
+      },
+      "error": "OpenAI API Key is missing on the server."
+    }
+  ],
+  "users": [
+    {
+      "name": "Mahesh",
+      "email": "mkparmar.131@gmail.com",
+      "passwordHash": "Mk.99252.p",
+      "avatar": "https://api.dicebear.com/7.x/initials/svg?seed=Mahesh",
+      "id": "8e0352e0-c272-4346-8613-eff50300242d",
+      "credits": 31
+    }
+  ]
+}
