@@ -34,3 +34,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Deployment
+
+### Vercel
+This project includes a `vercel.json` configuration and is ready to deploy on Vercel.
+
+**IMPORTANT NOTE ON DATA PERSISTENCE:**
+This application currently uses a file-based database (`data/db.json`). Vercel and similar serverless platforms have ephemeral file systems, meaning **data saved during a session will be lost** when the server sleeps or redeploys.
+
+**For Production Use:**
+1. Switch to a cloud database (e.g., Vercel Postgres, MongoDB Atlas, Supabase).
+2. Update `lib/storage.ts` to connect to the external database.
