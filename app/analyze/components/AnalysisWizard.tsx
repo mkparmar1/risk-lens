@@ -111,6 +111,8 @@ export function AnalysisWizard({ initialData, projectId }: { initialData?: UserI
                         communication: "",
                     })
                 }}
+                projectTitle={formData.title}
+                clientName={formData.clientName}
             />
         )
     }

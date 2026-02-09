@@ -8,6 +8,7 @@ import { RiskAnalysisSchema, SYSTEM_PROMPT, formatUserPrompt, RiskAnalysisResult
 import { Storage } from "@/lib/storage"
 
 import { requireAuth } from "@/lib/auth"
+import { parseFileContent } from "@/lib/file-parsers"
 
 export async function analyzeProject(data: UserInputData, projectId?: string): Promise<{ success: boolean; data?: RiskAnalysisResult; error?: string; recordId?: string }> {
     const session = await requireAuth()
@@ -37,6 +38,24 @@ export async function analyzeProject(data: UserInputData, projectId?: string): P
     }
 
     try {
+
+        // --- Process Files ---
+        let combinedFileText = ""
+        if (data.files && data.files.length > 0) {
+            try {
+                const fileTexts = await Promise.all(
+                    data.files.map(async (file) => {
+                        const text = await parseFileContent(file)
+                        return `--- File: ${file.name} ---\n${text}\n`
+                    })
+                )
+                combinedFileText = fileTexts.join("\n")
+            } catch (err) {
+                console.error("Error parsing files:", err)
+                combinedFileText = "[Error processing attached files]"
+            }
+        }
+
         // --- Client Memory Check ---
         let memoryContext = ""
         if (data.clientName) {
@@ -56,7 +75,7 @@ export async function analyzeProject(data: UserInputData, projectId?: string): P
             }
         }
 
-        const userContent = formatUserPrompt(data) + memoryContext
+        const userContent = formatUserPrompt(data, combinedFileText) + memoryContext
 
         const completion = await openai.chat.completions.create({
             model: "gpt-4o-2024-08-06",

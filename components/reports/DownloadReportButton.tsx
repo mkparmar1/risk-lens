@@ -20,11 +20,11 @@ const PDFDownloadLink = dynamic(
     }
 )
 
-export function DownloadReportButton({ result, projectTitle }: { result: RiskAnalysisResult, projectTitle?: string }) {
+export function DownloadReportButton({ result, projectTitle, clientName }: { result: RiskAnalysisResult, projectTitle?: string, clientName?: string }) {
     return (
         <PDFDownloadLink
-            document={<RiskReportPDF result={result} projectTitle={projectTitle} />}
-            fileName={`RiskAnalysis_${projectTitle || "Report"}.pdf`}
+            document={<RiskReportPDF result={result} projectTitle={projectTitle || "Project"} clientName={clientName} />}
+            fileName={`RiskAnalysis_${(projectTitle || "Report").replace(/[^a-z0-9]/gi, '_')}.pdf`}
         >
             {({ blob, url, loading, error }) => (
                 <Button disabled={loading} variant="outline" size="lg">

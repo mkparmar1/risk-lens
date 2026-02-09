@@ -11,9 +11,11 @@ import { DownloadReportButton } from "@/components/reports/DownloadReportButton"
 interface AnalysisResultProps {
     result: RiskAnalysisResult
     onReset: () => void
+    projectTitle?: string
+    clientName?: string
 }
 
-export function AnalysisResult({ result, onReset }: AnalysisResultProps) {
+export function AnalysisResult({ result, onReset, projectTitle, clientName }: AnalysisResultProps) {
 
     const handlePrint = () => {
         window.print()
@@ -144,7 +146,7 @@ export function AnalysisResult({ result, onReset }: AnalysisResultProps) {
                         <ArrowLeft className="mr-2 h-4 w-4" />
                         Analyze New Project
                     </Button>
-                    <DownloadReportButton result={result} />
+                    <DownloadReportButton result={result} projectTitle={projectTitle} clientName={clientName} />
                 </div>
             </div>
 

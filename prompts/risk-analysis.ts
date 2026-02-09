@@ -43,7 +43,7 @@ Also provide specific contract clauses that the freelancer should include to pro
 `
 
 // Helper to format user input
-export function formatUserPrompt(data: UserInputData): string {
+export function formatUserPrompt(data: UserInputData, fileContents: string = ""): string {
   const filesList = data.files.map(f => f.name).join(", ") || "None"
 
   return `
@@ -58,6 +58,7 @@ export function formatUserPrompt(data: UserInputData): string {
     CLIENT COMMUNICATION / NOTES:
     ${data.communication || "None provided"}
     
-    ATTACHED FILES (Names only): ${filesList}
+    ATTACHED FILES (Names: ${filesList}):
+    ${fileContents ? `\n--- ANALYZED FILE CONTENTS ---\n${fileContents}\n------------------------------` : "No file content analyzed (or files were empty/unreadable)."}
   `
 }
